@@ -13,63 +13,80 @@ using AventStack.ExtentReports.Reporter;
 namespace AutoSignup
 {
 
-    [TestFixture]
-    public class Login
-    {
-        ExtentReports extent = null;
-
-        [OneTimeSetUp]
-        public void Extendstart()
-        {
-            extent = new ExtentReports();
-            var htmlreporter = new ExtentHtmlReporter(@"C:\Users\shrief fadl\Source\Repos\AutoSignup\AutoSignup\extent reports\Login.html");
-            extent.AttachReporter(htmlreporter);
-            
-
-        }
-        [OneTimeTearDown]
-        public void Extentclose()
-        {
-            extent.Flush();
-        }
-         
-
-        IWebDriver driver;
-        [SetUp]
-        public void startBrowser()
-        {
-            driver = new ChromeDriver("C://webdrivers");
-
-        }
-
-        [Test]
-        public void open_chrome()
-        {
-            ExtentTest test = extent.CreateTest("startBrowser").Info("test started");
-
-            driver.Url = "https://www.phptravels.net/login";
-            driver.Manage().Window.Maximize();
-            test.Log(Status.Info, "chrome lanched");
-            
-            IWebElement EmailTextbox = driver.FindElement(By.XPath(".//*[@id='loginfrm']/div[3]/div[1]/label/input"));
-            IWebElement PasswordTextbox = driver.FindElement(By.XPath(".//*[@id='loginfrm']/div[3]/div[2]/label/input"));
-            IWebElement LoginBut = driver.FindElement(By.XPath(".//*[@id='loginfrm']/"));
-            EmailTextbox.SendKeys("shrief_fadl@outlook.com");
-            PasswordTextbox.SendKeys("XFGASFAF");
-            test.Log(Status.Info, "data entered");
-
-            LoginBut.Click();
-            test.Log(Status.Pass, "Test passed");
+	[TestFixture]
+	public class Login
+	{
+		ExtentReports extent = null;
+		 
+		 [OneTimeSetUp]
+		public void Extendstart()
+		{
+			extent = new ExtentReports();
+			var htmlreporter = new ExtentHtmlReporter(@"C:\Users\shrief fadl\Source\Repos\AutoSignup\AutoSignup\extent reports\Login.html");
+			extent.AttachReporter(htmlreporter);
 
 
-        }
-        /*
-        [TearDown]
-        public void closeBrowser()
-        {
-            driver.Close();
-        }
-        */
+		}
+		[OneTimeTearDown]
+		public void Extentclose()
+		{
+			extent.Flush();
+		}
 
-    }
-}
+
+		IWebDriver driver;
+		[SetUp]
+		public void startBrowser()
+		{
+			driver = new ChromeDriver("C://webdrivers");
+
+		}
+		ExtentTest test = null;
+
+	   [Test]
+		public void open_chrome()
+		{
+			try
+			{
+				test = extent.CreateTest("startBrowser").Info("test started");
+
+				driver.Url = "https://www.phptravels.net/login";
+				driver.Manage().Window.Maximize();
+				test.Log(Status.Info, "chrome lanched");
+
+				IWebElement EmailTextbox = driver.FindElement(By.XPath(".//*[@id='loginfrm']/div[3]/div[1]/label/input"));
+				IWebElement PasswordTextbox = driver.FindElement(By.XPath(".//*[@id='loginfrm']/div[3]/div[2]/label/input"));
+				IWebElement LoginBut = driver.FindElement(By.XPath(".//*[@id='loginfrm']/"));
+				EmailTextbox.SendKeys("shrief_fadl@outlook.com");
+				PasswordTextbox.SendKeys("XFGASFAF");
+				test.Log(Status.Info, "data entered");
+
+				LoginBut.Click();
+				test.Log(Status.Pass, "Test passed");
+
+			}
+			catch (Exception e)
+			{
+				test.Log(Status.Fail,e.ToString());
+				throw;
+			}
+		}
+
+	}
+	
+	   
+
+
+	
+
+   
+		   /*
+		[TearDown]
+		public void closeBrowser()
+		{
+			driver.Close();
+		}
+		*/
+
+	}
+
