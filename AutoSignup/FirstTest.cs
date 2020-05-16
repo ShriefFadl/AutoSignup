@@ -24,14 +24,15 @@ namespace AutoSignup
         [Test]
         public void test()
         {
-            driver.Url = "http://www.google.com";
+            driver.Url = "https://www.phptravels.net/login";
         } 
-
+        /*
         [TearDown]
         public void closeBrowser()
         {
             driver.Close();
         }
+        */
 
     }
 }
