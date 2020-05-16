@@ -53,7 +53,7 @@ namespace AutoSignup
             
             IWebElement EmailTextbox = driver.FindElement(By.XPath(".//*[@id='loginfrm']/div[3]/div[1]/label/input"));
             IWebElement PasswordTextbox = driver.FindElement(By.XPath(".//*[@id='loginfrm']/div[3]/div[2]/label/input"));
-            IWebElement LoginBut = driver.FindElement(By.XPath(".//*[@id='loginfrm']/button"));
+            IWebElement LoginBut = driver.FindElement(By.XPath(".//*[@id='loginfrm']/"));
             EmailTextbox.SendKeys("shrief_fadl@outlook.com");
             PasswordTextbox.SendKeys("XFGASFAF");
             test.Log(Status.Info, "data entered");
