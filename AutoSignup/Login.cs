@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
-
+using System.Drawing;
 namespace AutoSignup
 {
 
@@ -63,7 +63,7 @@ namespace AutoSignup
 
 				LoginBut.Click();
                 Screenshot Sshot = ((ITakesScreenshot)driver).GetScreenshot();
-                Sshot.SaveAsFile("log in passed", ScreenshotImageFormat.Png);
+                Sshot.SaveAsFile("C:\\Users\\shrief fadl\\Source\\Repos\\AutoSignup\\AutoSignup\\extent reports\\log in passed.Jpeg", ScreenshotImageFormat.Jpeg);
 				test.Log(Status.Pass, "Test passed");
 
 			}
