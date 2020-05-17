@@ -56,12 +56,14 @@ namespace AutoSignup
 
 				IWebElement EmailTextbox = driver.FindElement(By.XPath(".//*[@id='loginfrm']/div[3]/div[1]/label/input"));
 				IWebElement PasswordTextbox = driver.FindElement(By.XPath(".//*[@id='loginfrm']/div[3]/div[2]/label/input"));
-				IWebElement LoginBut = driver.FindElement(By.XPath(".//*[@id='loginfrm']/"));
+				IWebElement LoginBut = driver.FindElement(By.XPath(".//*[@id='loginfrm']/button"));
 				EmailTextbox.SendKeys("shrief_fadl@outlook.com");
 				PasswordTextbox.SendKeys("XFGASFAF");
 				test.Log(Status.Info, "data entered");
 
 				LoginBut.Click();
+                Screenshot Sshot = ((ITakesScreenshot)driver).GetScreenshot();
+                Sshot.SaveAsFile("log in passed", ScreenshotImageFormat.Png);
 				test.Log(Status.Pass, "Test passed");
 
 			}
@@ -69,6 +71,10 @@ namespace AutoSignup
 			{
 				test.Log(Status.Fail,e.ToString());
 				throw;
+			}
+			finally
+			{
+				driver.Quit();
 			}
 		}
 
