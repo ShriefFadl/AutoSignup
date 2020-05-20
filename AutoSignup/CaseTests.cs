@@ -25,7 +25,7 @@ namespace AutoSignup
 		public void Extendstart()
 		{
 			extent = new ExtentReports();
-			var htmlreporter = new ExtentHtmlReporter(@"C:\Users\shrief fadl\Source\Repos\AutoSignup\AutoSignup\extent reports\Login.html");
+			var htmlreporter = new ExtentHtmlReporter(@"AutoSignup\extent reports\Register Report.html");
 			extent.AttachReporter(htmlreporter);
 
 
@@ -60,9 +60,10 @@ namespace AutoSignup
                 
                 //take screen shoot
                 Screenshot Sshot = ((ITakesScreenshot)Browser.Driver).GetScreenshot();
-                Sshot.SaveAsFile("C:\\Users\\shrief fadl\\Source\\Repos\\AutoSignup\\AutoSignup\\extent reports\\registration passed.Jpeg", ScreenshotImageFormat.Jpeg);
+                Sshot.SaveAsFile(@"\\AutoSignup\\extent reports\\registration passed.Jpeg", ScreenshotImageFormat.Jpeg);
 
             }
+
 			catch (Exception e)
 			{
 				test.Log(Status.Fail,e.ToString());

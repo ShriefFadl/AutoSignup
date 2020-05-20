@@ -100,14 +100,15 @@
     </None>
     <None Include="license" />
     <None Include="packages.config" />
+    <None Include="Pages\extent reports\log in passed" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="chromedriver.exe" />
     <Content Include="extent-config.xml" />
+    <Content Include="Pages\extent reports\log in passed.Jpeg" />
+    <Content Include="Pages\extent reports\Login.html" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="extent reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
