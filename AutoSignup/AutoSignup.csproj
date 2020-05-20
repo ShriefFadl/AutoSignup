@@ -64,6 +64,9 @@
     <Reference Include="RazorEngine, Version=3.9.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
       <HintPath>..\packages\RazorEngine.3.9.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
+    <Reference Include="SeleniumExtras.PageObjects, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.PageObjects.3.11.0\lib\net45\SeleniumExtras.PageObjects.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -84,18 +87,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FirstTest.cs" />
-    <Compile Include="Login.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Browser.cs" />
+    <Compile Include="CaseTests.cs" />
+    <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\Pages.cs" />
+    <Compile Include="Pages\RegisterPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SignUp.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="license" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="chromedriver.exe" />
     <Content Include="extent-config.xml" />
   </ItemGroup>
   <ItemGroup>
