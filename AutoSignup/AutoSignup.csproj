@@ -40,8 +40,14 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutomatedTester.BrowserMob">
+      <HintPath>..\packages\AutomatedTester.BrowserMob\AutomatedTester.BrowserMob.dll</HintPath>
+    </Reference>
     <Reference Include="ExtentReports, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ExtentReports.3.1.2\lib\ExtentReports.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl, Version=1.0.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.1.0.10\lib\portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+MonoTouch10\Flurl.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
@@ -58,11 +64,20 @@
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json.Net20">
+      <HintPath>..\packages\AutomatedTester.BrowserMob\Newtonsoft.Json.Net20.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="RazorEngine, Version=3.9.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
       <HintPath>..\packages\RazorEngine.3.9.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="RemoteBrowserMobProxy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RemoteBrowserMobProxy.0.0.1\lib\net45\RemoteBrowserMobProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="SeleniumExtras.PageObjects, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetSeleniumExtras.PageObjects.3.11.0\lib\net45\SeleniumExtras.PageObjects.dll</HintPath>
@@ -89,6 +104,12 @@
   <ItemGroup>
     <Compile Include="Browser.cs" />
     <Compile Include="CaseTests.cs" />
+    <Compile Include="Generators\Email.cs" />
+    <Compile Include="Generators\FirstName.cs" />
+    <Compile Include="Generators\LastName.cs" />
+    <Compile Include="Generators\Password.cs" />
+    <Compile Include="Generators\Phone.cs" />
+    <Compile Include="Generators\UserGenerator.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\Pages.cs" />
     <Compile Include="Pages\RegisterPage.cs" />
@@ -98,6 +119,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="browsermob-proxy.bat" />
     <None Include="license" />
     <None Include="packages.config" />
     <None Include="Pages\extent reports\log in passed" />

@@ -1,10 +1,11 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AutomatedTester.BrowserMob.HAR;
+using AutomatedTester.BrowserMob;
+using System.IO;
+
+using OpenQA.Selenium.Remote;
 
 namespace AutoSignup
 {
@@ -36,6 +37,37 @@ namespace AutoSignup
         public static void Close()
         {
             webDriver.Close();
+        }
+
+        public static void ReadRegisterResponse()
+        {
+
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "\\browsermob-proxy.bat");
+            Server server = new Server(path);
+            server.Start();
+
+            Client client = server.CreateProxy();
+            client.NewHar("RegistrationResponse");
+
+            var seleniumProxy = new Proxy { HttpProxy = client.SeleniumProxy };
+           
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.SetCapability(CapabilityType.Proxy, seleniumProxy);
+
+
+            // retrieve performance stats for
+            IWebDriver driver = new ChromeDriver(capabilities);
+            driver.Navigate().GoToUrl("https://www.phptravels.net/account/");
+
+            // Get the performance stats 
+            //That contains the response of the login an successful registration
+            HarResult harData = client.GetHar();
+
+           
+            client.Close();
+            server.Stop();
+
+
         }
     }
 }

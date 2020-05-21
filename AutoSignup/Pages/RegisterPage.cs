@@ -1,10 +1,5 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.InteropServices;
+using AutoSignup.Generators;
 using SeleniumExtras.PageObjects;
 namespace AutoSignup.Pages
 {
@@ -31,13 +26,15 @@ namespace AutoSignup.Pages
 
         public void RegisterNewUser()
         {
+            var User = UserGenerator.Generate();
 
-            firstNameTextField.SendKeys("Shrief");
-            lastNameTextField.SendKeys("Fadl");
-            phoneTextField.SendKeys("010010001002");
-            emailAddressTextField.SendKeys("admin@admin.com");
-            passwordTextField.SendKeys("Password123");
-            confirmPasswordTextField.SendKeys("Password123");
+            firstNameTextField.SendKeys(User.FirstName);
+
+            lastNameTextField.SendKeys(User.LastName);
+            phoneTextField.SendKeys(User.PhoneNumber);
+            emailAddressTextField.SendKeys(User.EmailAddress);
+            passwordTextField.SendKeys(User.Password);
+            confirmPasswordTextField.SendKeys(User.Password);
 
             registerButton.Click();
         }

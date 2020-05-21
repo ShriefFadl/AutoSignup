@@ -3,29 +3,28 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using System.Drawing;
 using AutoSignup.Pages;
-
+using System.IO;
 
 namespace AutoSignup 
 {
+    
 
-	[TestFixture]
+    [TestFixture]
 	public class CaseTests 
 	{
-		ExtentReports extent = null;
+       
+        ExtentReports extent = null;
 		 
 		 [OneTimeSetUp]
 		public void Extendstart()
 		{
 			extent = new ExtentReports();
-			var htmlreporter = new ExtentHtmlReporter(@"AutoSignup\extent reports\Register Report.html");
+			var htmlreporter = new ExtentHtmlReporter(@"..\..\Pages\extent reports\Register Report.html");
 			extent.AttachReporter(htmlreporter);
 
 
@@ -57,17 +56,19 @@ namespace AutoSignup
                 //passed test
                 test.Log(Status.Pass, "Test passed");
                 Assert.Pass("registration completed");
+               
+                
                 
                 //take screen shoot
                 Screenshot Sshot = ((ITakesScreenshot)Browser.Driver).GetScreenshot();
-                Sshot.SaveAsFile(@"\\AutoSignup\\extent reports\\registration passed.Jpeg", ScreenshotImageFormat.Jpeg);
+                Sshot.SaveAsFile(@"..\..\Pages\extent reports\registration passed.Jpeg", ScreenshotImageFormat.Jpeg);
 
             }
 
 			catch (Exception e)
 			{
 				test.Log(Status.Fail,e.ToString());
-                Assert.Fail("registrtion not completed");
+               // Assert.Fail("registrtion not completed");
 				throw;
 			}
 			finally
@@ -85,6 +86,9 @@ namespace AutoSignup
                 Browser.Goto("login");
                 pages.Login.LogIn();
                 Assert.Pass("loged in");
+
+                Browser.ReadRegisterResponse();
+                
             }
             catch (Exception)
             {
