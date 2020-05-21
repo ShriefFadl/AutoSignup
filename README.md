@@ -24,7 +24,8 @@
 - ![Architecture](https://user-images.githubusercontent.com/13305274/82571078-b8667e80-9b82-11ea-91f6-da57558fe977.png)
 >The Case Tests
 - The key is too keep every thing simple
-![Tests](https://user-images.githubusercontent.com/13305274/82572117-36775500-9b84-11ea-9d64-3993aadfb5ef.png)
+![carbon (2)](https://user-images.githubusercontent.com/13305274/82580992-2f564400-9b90-11ea-8e35-068e8eb3b7f7.png)
+
 
 
 
@@ -41,7 +42,8 @@
 
 > The browser that handles it all
 
-![chrome](https://user-images.githubusercontent.com/13305274/82575678-14340600-9b89-11ea-8c07-f70b64e61b7e.png)
+![carbon (1)](https://user-images.githubusercontent.com/13305274/82580799-f74f0100-9b8f-11ea-8f7c-dea80c3d7ac5.png)
+
 
 
 
