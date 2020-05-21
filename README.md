@@ -21,9 +21,11 @@
 
 
 - Begin with the test cases that that handled by the frame work that interacts selemnum as below
-- ![Architecture](https://user-images.githubusercontent.com/13305274/82571078-b8667e80-9b82-11ea-91f6-da57558fe977.png)
+![Architecture](https://user-images.githubusercontent.com/13305274/82571078-b8667e80-9b82-11ea-91f6-da57558fe977.png)
 >The Case Tests
+
 - The key is too keep every thing simple
+
 ![carbon (2)](https://user-images.githubusercontent.com/13305274/82580992-2f564400-9b90-11ea-8e35-068e8eb3b7f7.png)
 
 
